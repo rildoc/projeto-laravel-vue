@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        <link rel="stylesheet" href="{{ url('css/sticky-footer-navbar.css') }}">
+
+        <link rel="shortcut icon" href="{{ url('img/favicon.png') }}" type="images/png">
+
+    </head>
+    <body>
+        <div id="app">
+                @yield('content')
+
+        </div>
+          <script src="{{ mix('/js/app.js') }}"></script>
+    </body>
+</html>

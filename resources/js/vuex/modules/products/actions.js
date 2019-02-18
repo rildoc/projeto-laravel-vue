@@ -38,7 +38,7 @@ export default {
                     .then(response => resolve())
                     .catch(error => {
                         context.commit('PRELOADER', false)
-                        
+
                         reject(error.response)
                     })
                     // .finally(() => context.commit('PRELOADER', false))
@@ -50,13 +50,13 @@ export default {
         context.commit('PRELOADER', true)
 
         formData.append('_method', 'PUT')
-        
+
         return new Promise((resolve, reject) => {
             axios.post(`${URL_BASE}${RESOURCE}/${formData.get('id')}`, formData)
                     .then(response => resolve())
                     .catch(error => {
                         context.commit('PRELOADER', false)
-                        
+
                         reject(error.response)
                     })
                     // .finally(() => context.commit('PRELOADER', false))
@@ -72,7 +72,7 @@ export default {
                     .then(response => resolve())
                     .catch(error => {
                         reject()
-                        
+
                         context.commit('PRELOADER', false)
                     })
                     // .finally(() => context.commit('PRELOADER', false))

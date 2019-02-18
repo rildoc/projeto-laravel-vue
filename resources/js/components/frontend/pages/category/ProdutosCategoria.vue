@@ -2,27 +2,34 @@
     <div>
              produtos da categoria
             <div class="row">
-                <item
+                    <div class="row">
+                      <item
                       v-for="product in products.data"
                       :key="product.id"
-                      :item="category_id"
+                      :item="product"
                       class="item"
                       :path="'products'">
                       </item>
+                 </div>
             </div>
 
     </div>
 </template>
 <script>
-import Item from '../../../layouts/Item'
-
+  import Item from '../../../layouts/Item'
 
     export default {
-        props: ['item'],
+        props: ['id'],
+
+        created () {
+          this.loadProduct()
+        },
+
         data () {
             return {
                 filter: '',
                 category_id: '',
+                product: {}
             }
         },
 
@@ -31,10 +38,17 @@ import Item from '../../../layouts/Item'
               return this.$store.state.products.items
              }
           },
-           components: {
-            Item,
-        }
 
+          methods: {
+            loadProduct () {
+                 this.$store.dispatch('loadProduct', this.id)
+                   .then(product => this.product = product)
+            }
+          },
+
+          components: {
+            Item,
+          }
         }
 </script>
 <style scoped>

@@ -1,34 +1,34 @@
 <template>
     <div>
         <h2>Preencha o formulário abaixo para receber o seu orçamento.</h2>
-       <form action="">
+       <form  @submit.prevent="onSubmit">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Empresa:">
+                <input type="text" class="form-control" v-model="budget.empresa" placeholder="Empresa:">
             </div>
              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome:">
+                <input type="text" class="form-control" v-model="budget.nome" placeholder="Nome:">
             </div>
             <div class="telefones">
                  <div class="form-group fixo">
-                    <input type="text" class="form-control" placeholder="Telefone:">
+                    <input type="text" class="form-control" v-model="budget.telefone" placeholder="Telefone:">
                 </div>
                  <div class="form-group celular">
-                    <input type="text" class="form-control" placeholder="Celular:">
+                    <input type="text" class="form-control" v-model="budget.celular" placeholder="Celular:">
                 </div>
             </div>
             <div class="localizacao">
                    <div class="form-group estado">
-                        <input type="text" class="form-control" placeholder="Estado:">
+                        <input type="text" class="form-control" v-model="budget.estado" placeholder="Estado:">
                     </div>
                      <div class="form-group cidade">
-                        <input type="text" class="form-control" placeholder="Cidade:">
+                        <input type="text" class="form-control" v-model="budget.cidade" placeholder="Cidade:">
                     </div>
                      <div class="form-group cep">
-                        <input type="text" class="form-control" placeholder="CEP:">
+                        <input type="text" class="form-control" v-model="budget.cep" placeholder="CEP:">
                     </div>
             </div>
             <div class="form-group">
-                <textarea name="" id="" class="form-control" placeholder="Mensagem:"></textarea>
+                <textarea name="" id="" class="form-control" v-model="budget.mensagem" placeholder="Mensagem:"></textarea>
             </div>
             <p>
                  Todos Campos Obrigatórios .
@@ -42,7 +42,41 @@
 </template>
 <script>
     export default {
+        props: {
+           budget: {
+               require: false,
+               type: Object,
+               default: () => {
+                   return {
+                        empresa: '',
+                        nome: '',
+                        telefone: '',
+                        celular: '',
+                        estado: '',
+                        cidade: '',
+                        CEP: '',
+                        mensagem: '',
+                   }
+               }
 
+           }
+        },
+        data () {
+            return {
+
+            }
+        },
+        methods: {
+            onSubmit () {
+                this.$store.dispatch('storeBudget', this.budget)
+                                .then(() => {
+                                    this.$snotify.success('Sucesso ao cadastrar')
+                                })
+                                .catch(() => {
+                                    this.$notify.error('Algo de Errado', 'Erro')
+                                })
+            }
+        }
     }
 </script>
 <style scoped>

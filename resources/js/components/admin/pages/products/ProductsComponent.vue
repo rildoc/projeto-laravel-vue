@@ -39,7 +39,7 @@
           <tr v-for="product in products.data" :key="product.id">
             <td>
               <div v-if="product.image">
-                <img :src="[`/storage/products/${product.image}`]" :alt="product.name" class="img-list">
+                <img :src="[`/storage/products/${product.image}`]" :alt="product.name" class="img-list" width="150" height="150">
               </div>
             </td>
             <td>{{ product.name }}</td>

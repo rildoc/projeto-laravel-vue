@@ -5,15 +5,17 @@
            <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <h3>Localização</h3>
                      {{ conteudo.localizacao }}
                 </div>
                  <div class="col-md-4">
+                     <h3>Atendiemnto</h3>
                      <p>{{ conteudo.foneA }}</p>
                      <p>{{ conteudo.foneB }}</p>
                 </div>
                  <div class="col-md-4">
+                     <p> {{ conteudo.name }}</p>
                       <img :src="[`/storage/products/${conteudo.logo}`]" :alt="conteudo.name"  class="image-preview img-responsive">
-                          {{ conteudo.name }}
                 </div>
             </div>
           </div>

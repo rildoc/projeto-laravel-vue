@@ -1,9 +1,8 @@
 <template>
   <div>
-        <h1>listar categoria</h1>
-        <ul @click.prevent="search" v-model="category_id">
-            <li v-for="item in categories" :key="item.id">
-                    <router-link :to="{name: 'category.products', params: {id: item.id}}"> {{ item.name }} </router-link>
+         <ul class="list-group" @click.prevent="search" v-model="category_id">
+            <li class="list-group-item" v-for="item in categories" :key="item.id">
+                    <router-link :to="{name: 'produtos.categoria', params: {id: item.id}}"> {{ item.name }} </router-link>
             </li>
         </ul>
   </div>

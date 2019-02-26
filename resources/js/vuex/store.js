@@ -9,6 +9,8 @@ import auth from './modules/auth/auth'
 import profile from './modules/users/profile'
 import chart from './modules/charts/charts'
 import cms from './modules/cms/cms'
+import budget from './modules/budget/budget'
+import categoryProduct from './modules/categoryProduct/categoryProduct'
 
 Vue.use(Vuex)
 
@@ -22,6 +24,8 @@ const store = new Vuex.Store({
         profile,
         chart,
         cms,
+        budget,
+        categoryProduct,
     }
 })
 

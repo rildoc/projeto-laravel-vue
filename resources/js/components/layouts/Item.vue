@@ -33,7 +33,7 @@ export default {
 .produtos {
     text-align: center;
     margin:20px 0;
-    height: 290px;
+    height: 320px;
     box-shadow: 9px 9px 30px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
     margin: 0 10px;

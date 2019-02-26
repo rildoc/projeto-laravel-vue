@@ -1,10 +1,8 @@
 <template>
   <div>
-      <h1>Produtos</h1>
-
      <!-- <search @search="search"></search> -->
 
-      <div class="row">
+      <div class="row conteudo-produtos">
              <div class="col-md-3">
                 <lista-categoria></lista-categoria>
             </div>
@@ -86,4 +84,5 @@ export default {
 
 <style scoped>
 .list-group-item a{ color:#6E6E6E;  }
+.conteudo-produtos { padding:30px 0; }
 </style>

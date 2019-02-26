@@ -16,6 +16,7 @@ import ProfileComponent from '../components/frontend/pages/user/ProfileComponent
 import Error404 from '../components/frontend/pages/404/Error404'
 import CmsComponent from '../components/admin/pages/cms/CmsComponent'
 import ProdutosCategoria from '../components/frontend/pages/category/ProdutosCategoria'
+import BudgetComponent from '../components/admin/pages/budget/BudgetComponent'
 
 
 
@@ -29,7 +30,7 @@ const routes = [
             {path: 'meu-perfil', component: ProfileComponent, name: 'profile', meta: {auth: true}},
             {path: 'carrinho', component: CartComponent, name: 'cart'},
             {path: 'produto/:id', component: ProductDetail, name: 'product.detail', props: true},
-            {path: 'categoria/:id', component: ProdutosCategoria, name: 'category.products', props: true},
+            {path: 'categoria/:id', component: ProdutosCategoria, name: 'produtos.categoria', props: true},
             {path: 'contato', component: ContactComponent, name: 'contact'},
             {path: '', component: HomeComponent, name: 'home'},
 
@@ -46,6 +47,7 @@ const routes = [
             {path: 'categories/:id/edit', component: EditCategoryComponent, name: 'admin.categories.edit', props: true},
             {path: 'products', component: ProductsComponent, name: 'admin.products', meta: {auth: true}},
             {path: 'products-reports', component: ProductsReports, name: 'products.reports'},
+            {path: 'budgets', component: BudgetComponent, name: 'admin.budgets'},
             {path: 'cms', component: CmsComponent, name: 'admin.cms'},
 
         ]

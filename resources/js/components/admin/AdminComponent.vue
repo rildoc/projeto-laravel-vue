@@ -1,6 +1,6 @@
 <template>
   <div>
-      <ul class="nav menu-dashboard">
+      <ul class="nav menu-dashboard bg-dark">
         <li class="nav-item">
           <router-link :to="{name: 'admin.dashboard'}" class="nav-link">Dashboard</router-link>
         </li>
@@ -15,6 +15,9 @@
         </li>
         <li>
           <router-link :to="{name: 'products.reports'}" class="nav-link">Relatórios</router-link>
+        </li>
+        <li>
+          <router-link :to="{name: 'admin.budgets'}" class="nav-link">Pedidos</router-link>
         </li>
         <li>
           <a href="#" class="nav-link">

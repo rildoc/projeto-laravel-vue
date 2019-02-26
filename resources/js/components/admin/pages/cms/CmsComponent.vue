@@ -1,15 +1,15 @@
 <template>
      <div>
          <h1>Painel de Administração do site</h1>
-         <button class="btn btn-success" @click.prevent="showModal = true">
+        <!-- <button class="btn btn-success" @click.prevent="showModal = true">
             Cadastro
-         </button>
+         </button> -->
          <vodal
          :show="showModal"
          animation="zoom"
          @hide="hideModal"
          :width="400"
-         :height="400">
+         :height="450">
          <cms-form
          :cms="conteudo"
          :update="update"
@@ -50,10 +50,9 @@ export default {
       showModal: false,
       conteudo: {
              id: '',
-             title: '',
              logo: '',
              name: '',
-             keywords: '',
+             copyright: '',
              foneA: '',
              foneB: '',
              localizacao: '',

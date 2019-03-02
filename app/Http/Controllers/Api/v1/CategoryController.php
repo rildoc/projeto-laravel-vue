@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     private $category, $totalPage = 10;
 
-    public function __construct(Category $category)
+   /* public function __construct(Category $category)
     {
         $this->category = $category;
 
@@ -19,7 +19,15 @@ class CategoryController extends Controller
             'index',
         ]);
     }
+  */
+        public function __construct(Category $category)
+    {
+        $this->category = $category;
 
+        $this->middleware('auth:api')->except([
+            'index', 'productsByCategory'
+        ]);
+    }
 
     public function index(Request $request)
     {

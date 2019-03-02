@@ -14,18 +14,18 @@ class CreateBudgetProduct extends Migration
     public function up()
     {
         Schema::create('budget_product', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->integer('budget_id')->unsigned();
+
             $table->foreign('product_id')
                             ->references('id')
-                            ->on('product')
+                            ->on('products')
                             ->onDelete('cascade');
+
             $table->foreign('budget_id')
                             ->references('id')
-                            ->on('budget')
+                            ->on('budgets')
                             ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

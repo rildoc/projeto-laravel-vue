@@ -27,18 +27,12 @@ class StoreUpdateCmsFormRequest extends FormRequest
            // /api/v1/cms/id
            $id = $this->segment(4);
            return [
-                'title'             => 'min:3|max:2000',
-                'name'              => 'min:3|max:2000',
-                'description'       => 'min:3|max:2000',
                 'copyright'         => 'min:3|max:2000',
-                'keywords'          => 'min:3|max:2000',
                 'logo'              => 'image',
                 'foneA'             => 'min:3|max:100',
                 'foneB'             => 'min:3|max:100',
                 'localizacao'       => 'min:3|max:1000',
-                'cor_title'         => 'min:4|max:7',
                 'cor_background'    => 'min:4|max:7',
-                'cor_texto'         => 'min:4|max:7',
             ];
     }
 }

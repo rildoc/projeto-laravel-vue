@@ -23,13 +23,15 @@ $this->group([
     // 'middleware' => 'auth:api'
 ], function () {
 
-    $this->get('categories/{id}/products', 'CategoryController@products');
+   // $this->get('categories/{id}/products', 'CategoryController@products');
 
     $this->get('category/{id}', 'CategoryController@productsByCategory');
 
     $this->apiResource('categories', 'CategoryController');
 
     $this->apiResource('budgets', 'BudgetController');
+
+    $this->apiResource('banners', 'BannerController');
 
     $this->apiResource('products', 'ProductController');
 

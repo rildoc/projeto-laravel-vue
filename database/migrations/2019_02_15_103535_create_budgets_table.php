@@ -15,15 +15,15 @@ class CreateBudgetsTable extends Migration
     {
         Schema::create('budgets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('empresa');
-            $table->string('nome');
-            $table->date('data');
-            $table->string('telefone');
-            $table->string('celular');
-            $table->string('estado');
-            $table->string('cidade');
-            $table->string('cep');
-            $table->string('mensagem');
+            $table->string('empresa')->nullable();
+            $table->string('nome')->nullable();
+            $table->date('data')->nullable();
+            $table->string('telefone')->nullable();
+            $table->string('celular')->nullable();
+            $table->string('estado')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('mensagem')->nullable();
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { URL_BASE } from '../../../config/configs'
 
-const RESOURCE = 'category'
+const RESOURCE = 'categories'
 
 const CONFIGS = {
     headers: {

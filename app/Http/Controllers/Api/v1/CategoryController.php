@@ -10,6 +10,8 @@ use App\Http\Requests\StoreUpdateCategoryFormRequest;
 class CategoryController extends Controller
 {
     private $category, $totalPage = 10;
+    private $model;
+
 
    /* public function __construct(Category $category)
     {
@@ -23,6 +25,7 @@ class CategoryController extends Controller
         public function __construct(Category $category)
     {
         $this->category = $category;
+        $this->model = $category;
 
         $this->middleware('auth:api')->except([
             'index', 'productsByCategory'

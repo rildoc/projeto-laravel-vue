@@ -1,20 +1,18 @@
 <template>
     <div>
             <div class="row conteudo-produtos">
-                 <div class="col-md-3">
                       <lista-categoria></lista-categoria>
-                </div>
-                <div class="col-md-9">
-                     <div class="row">
-                          <item
-                          v-for="product in products.data"
-                          :key="product.id"
-                          :item="product"
-                          class="item"
-                          :path="'products'">
-                          </item>
-                     </div>
-                 </div>
+                  <div class="col-md-9">
+                         <div class="row">
+                              <item
+                              v-for="product in products.data"
+                              :key="product.id"
+                              :item="product"
+                              class="item"
+                              :path="'products'">
+                              </item>
+                         </div>
+                   </div>
             </div>
     </div>
 </template>
@@ -39,7 +37,7 @@
 
         computed: {
           products () {
-              return this.$store.state.products.items
+              return this.$store.state.categoryProduct.items.data
              }
           },
 

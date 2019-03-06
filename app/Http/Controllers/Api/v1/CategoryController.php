@@ -28,7 +28,7 @@ class CategoryController extends Controller
         $this->model = $category;
 
         $this->middleware('auth:api')->except([
-            'index', 'productsByCategory'
+            'index', 'show','productsByCategory'
         ]);
     }
 
@@ -111,6 +111,8 @@ class CategoryController extends Controller
         $category = $this->model->with('products')->find($id);
 
         $products = $category->products;
+
+        dd($category);
 
         return response()->json([
             'category' => $category,

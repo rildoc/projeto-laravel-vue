@@ -16,7 +16,7 @@ export default {
 
         return new Promise((resolve, reject) => {
             axios.get(`${URL_BASE}${RESOURCE}/${id}`)
-                .then(response => resolve(response.data))
+                .then(response => resolve('LOAD_CAT_PRODUCTS',response.data))
                 .catch(error => reject())
                 .finally(() => context.commit('PRELOADER', false))
         })

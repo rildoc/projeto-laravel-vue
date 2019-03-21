@@ -57527,20 +57527,18 @@ var RESOURCE = 'budgets';
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(218);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mutations__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mutations___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__mutations__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__getters__ = __webpack_require__(220);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__getters___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__getters__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__state__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__state___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__state__);
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    state: __WEBPACK_IMPORTED_MODULE_3__state___default.a,
+    state: __WEBPACK_IMPORTED_MODULE_3__state__["a" /* default */],
     actions: __WEBPACK_IMPORTED_MODULE_0__actions__["a" /* default */],
-    mutations: __WEBPACK_IMPORTED_MODULE_1__mutations___default.a,
+    mutations: __WEBPACK_IMPORTED_MODULE_1__mutations__["a" /* default */],
     getters: __WEBPACK_IMPORTED_MODULE_2__getters___default.a
 });
 
@@ -57555,7 +57553,7 @@ var RESOURCE = 'budgets';
 
 
 
-var RESOURCE = 'category';
+var RESOURCE = 'categories';
 
 var CONFIGS = {
     headers: {
@@ -57569,7 +57567,7 @@ var CONFIGS = {
 
         return new Promise(function (resolve, reject) {
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('' + __WEBPACK_IMPORTED_MODULE_1__config_configs__["b" /* URL_BASE */] + RESOURCE + '/' + id).then(function (response) {
-                return resolve(response.data);
+                return resolve('LOAD_CAT_PRODUCTS', response.data);
             }).catch(function (error) {
                 return reject();
             }).finally(function () {
@@ -57581,9 +57579,14 @@ var CONFIGS = {
 
 /***/ }),
 /* 219 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+    LOAD_CAT_PRODUCTS: function LOAD_CAT_PRODUCTS(state, products) {
+        state.items = products;
+    }
+});
 
 /***/ }),
 /* 220 */
@@ -57593,9 +57596,14 @@ var CONFIGS = {
 
 /***/ }),
 /* 221 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+    items: {
+        data: []
+    }
+});
 
 /***/ }),
 /* 222 */
@@ -75917,8 +75925,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -75940,7 +75946,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   computed: {
     products: function products() {
-      return this.$store.state.products.items;
+      return this.$store.state.categoryProduct.items.data;
     }
   },
 
@@ -75969,23 +75975,28 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row conteudo-produtos" }, [
-      _c("div", { staticClass: "col-md-3" }, [_c("lista-categoria")], 1),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-9" }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          _vm._l(_vm.products.data, function(product) {
-            return _c("item", {
-              key: product.id,
-              staticClass: "item",
-              attrs: { item: product, path: "products" }
+    _c(
+      "div",
+      { staticClass: "row conteudo-produtos" },
+      [
+        _c("lista-categoria"),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-9" }, [
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.products.data, function(product) {
+              return _c("item", {
+                key: product.id,
+                staticClass: "item",
+                attrs: { item: product, path: "products" }
+              })
             })
-          })
-        )
-      ])
-    ])
+          )
+        ])
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
